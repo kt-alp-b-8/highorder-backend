@@ -1,0 +1,33 @@
+# 개발 환경에서의 설정
+spring:
+  config:
+    name: application-dev
+    activate:
+      on-profile: dev
+    location: classpath:/application-dev.yml
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/highorder
+    username: menu_service_app
+    password: kt8_menu
+
+  jpa:
+    hibernate:
+      ddl-auto: create    # 최초에만 create, 이후에는 update 사용
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Seoul
+        default_batch_fetch_size: 100
+        format_sql: true                                    # sout으로 보기에 편안한 sql 출력
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+
+logging:
+  level:
+    org.hibernate.SQL: debug    # 하이버네이트가 생성하는 sql 로그로 출력
+    org.hibernate.orm.jdbc.bind: debug    # 쿼리 파라미터 로그 남김
+    root: debug
+
+
