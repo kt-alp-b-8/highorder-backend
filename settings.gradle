@@ -1,4 +1,3 @@
 rootProject.name = 'highorder_backend'
-include('menu_service')
 include('order_service')
 include('restaurant_service')
