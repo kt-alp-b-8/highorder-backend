@@ -1,0 +1,3 @@
+rootProject.name = 'highorder_backend'
+include('order_service')
+include('restaurant_service')

@@ -1,0 +1,42 @@
+# 기본 설정
+server:
+  address: 0.0.0.0              # 모든 접속 허용
+  port: 8083
+  servlet:
+    session:
+      cookie:
+        same-site: none
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB        # 요청 파일 하나의 사이즈
+      max-request-size: 50MB     # 요청 전체의 사이즈
+  jmx:
+    enabled: false
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    display-request-duration: true
+
+openai:
+  api:
+    key: ${OPENAI_API_KEY}
+  url: 'https://api.openai.com/v1/chat/completions'
+
+
+---
+spring:
+  profiles:
+    active: dev
+    default: dev
+
+---
+spring:
+  profiles:
+    active: prod
+
